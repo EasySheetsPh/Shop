@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Sheets | Plan Smarter. Study Better.</title>
+  <style>
+    :root {
+      --light: #dad7cd;
+      --sage: #a3b18a;
+      --green: #588157;
+      --dark-green: #3a5a40;
+      --deep: #344e41;
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-main);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fff;
+      color: var(--deep);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--deep);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--sage);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background-color: var(--light);
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: var(--dark-green);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--deep);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+
+    .btn {
+      background-color: var(--green);
+      color: #fff;
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: var(--dark-green);
+      transform: scale(1.05);
+    }
+
+    .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background-color: var(--light);
+    }
+
+    .product {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 450px;
+      flex: 1 1 400px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .arrow:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .arrow.prev { left: 10px; }
+    .arrow.next { right: 10px; }
+
+    .product h4 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: var(--dark-green);
+    }
+
+    .product p {
+      font-size: 0.95rem;
+      color: var(--deep);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .product a {
+      background-color: var(--green);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .product a:hover {
+      background-color: var(--dark-green);
+    }
+
+    .about {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .about h3 {
+      color: var(--dark-green);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--deep);
+      font-size: 1.05rem;
+    }
+
+    .contact {
+      padding: 3rem 2rem;
+      background-color: var(--deep);
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact a {
+      color: var(--sage);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    .contact a:hover {
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--dark-green);
+      color: #fff;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .floating-cta {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 0.9rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+
+    .floating-cta:hover {
+      background-color: var(--dark-green);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      .product-section { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Easy Sheets</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#product">Product</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2>Plan Smarter. Study Better. Live Organized.</h2>
+    <p>Your calm, reliable study buddy — helping students track their goals, grades, and growth in one smart system.</p>
+    <a href="#product" class="btn">Explore Templates</a>
+  </section>
+
+  <section id="product" class="product-section">
+    <div class="product">
+      <div class="carousel-container" id="carousel1">
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/uc?export=view&id=1HPNWUjaLIKDF2fgpZtz7tY03utJqNoC3" alt="Blossom Pink 1">
+          <img src="https://drive.google.com/uc?export=view&id=14b-Czie_u4q3khXIphpUrxqpBbbAZGXL" alt="Blossom Pink 2">
+          <img src="https://drive.google.com/uc?export=view&id=1Mi-OoucweY1WLXAid9-_-2S2HjWxVpe0" alt="Blossom Pink 3">
+          <img src="https://drive.google.com/uc?export=view&id=1BbhKR38UZ0RykAaqFgywK8zEL8sB3Al8" alt="Blossom Pink 4">
+          <img src="https://drive.google.com/uc?export=view&id=1tsMog8PvTGJ7B56pqqLPMYIfRS0-vB8y" alt="Blossom Pink 5">
+          <img src="https://drive.google.com/uc?export=view&id=1YArMVL-HbAL9TeaZA_m3X6dsN_cAResn" alt="Blossom Pink 6">
+        </div>
+        <button class="arrow prev" onclick="moveSlide('carousel1', -1)">&#10094;</button>
+        <button class="arrow next" onclick="moveSlide('carousel1', 1)">&#10095;</button>
+      </div>
+      <h4>All-In-One Student Academic Tracker 2025 | Blossom Pink</h4>
+      <p>A soft pink theme for calm planning and organization.</p>
+      <a href="https://payhip.com/b/ewvNE" target="_blank">View Product</a>
+    </div>
+
+    <div class="product">
+      <div class="carousel-container" id="carousel2">
+        <div class="carousel-slide">
+          <img src="https://drive.google.com/uc?export=view&id=1j_Z_yfGK0OlTJr-j_OcrVK6A1YcKe-Qo" alt="Forest Green 1">
+          <img src="https://drive.google.com/uc?export=view&id=1NJ2PQDe2a0Rpa_TJoVPiVkYLAi-4wFP6" alt="Forest Green 2">
+          <img src="https://drive.google.com/uc?export=view&id=1XrFv5pPzjBhwSkqHTHvKGQggnJNdifsH" alt="Forest Green 3">
+          <img src="https://drive.google.com/uc?export=view&id=1XCXtPoGkPzOLXdOIcRR9txbZLolrbHxI" alt="Forest Green 4">
+          <img src="https://drive.google.com/uc?export=view&id=16vcUbO_NKhcMEEVHlmi48P-Cuc7nuX5C" alt="Forest Green 5">
+        </div>
+        <button class="arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</button>
+        <button class="arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</button>
+      </div>
+      <h4>All-In-One Student Academic Tracker 2025 | Forest Green</h4>
+      <p>A deep green theme for focus, balance, and growth.</p>
+      <a href="https://payhip.com/b/Fjfx3" target="_blank">View Product</a>
+    </div>
+
+    <div class="product">
+      <img src="https://drive.google.com/uc?export=view&id=10xvLduEncEPS5Q-SjYM9juLOr0L2d4C4" alt="Budget Tracker" style="width:100%; border-radius:10px;">
+      <h4>FREE Easy Sheets Budget Tracker for Students</h4>
+      <p>Track your daily expenses and stay organized for free!</p>
+      <a href="https://payhip.com/b/gG7nJ" target="_blank">Get Free Copy</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h3>Our Story</h3>
+    <p>Easy Sheets began with one student’s struggle — balancing classes, deadlines, and a tight budget while trying to keep grades steady. Instead of another half-worked planner, a simple Google Sheets system was built to bring clarity. What started as a personal tool grew into a calm, structured system that helps students achieve academic independence. Easy Sheets exists to be your digital study buddy — smart, minimal, and focused on helping you plan smarter and live organized.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h3>Contact Us</h3>
+    <p>Email: <a href="mailto:easysheets.contacts@gmail.com">easysheets.contacts@gmail.com</a></p>
+    <p>
+      <a href="https://www.instagram.com/easysheetsonig/" target="_blank">Instagram</a> |
+      <a href="https://www.facebook.com/profile.php?id=61582341212031" target="_blank">Facebook</a> |
+      <a href="https://ph.pinterest.com/EasySheets_/" target="_blank">Pinterest</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Easy Sheets. Plan smarter. Study better. Live organized.</p>
+  </footer>
+
+  <a href="https://payhip.com/EasySheets" class="floating-cta" target="_blank">Get Easy Sheets 💚</a>
+
+  <script>
+    function moveSlide(id, direction) {
+      const container = document.getElementById(id);
+      const slide = container.querySelector('.carousel-slide');
+      const slides = slide.querySelectorAll('img');
+      let index = parseInt(slide.getAttribute('data-index')) || 0;
+      index = (index + direction + slides.length) % slides.length;
+      slide.style.transform = `translateX(-${index * 100}%)`;
+      slide.setAttribute('data-index', index);
+    }
+  </script>
+
+</body>
+</html>
