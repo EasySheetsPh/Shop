@@ -275,7 +275,6 @@
     background-color: var(--background, #fff);
     padding: 40px 20px;
   ">
-
   <!-- Title outside hero-panel -->
   <h1 id="hero-title"
     style="
@@ -286,51 +285,19 @@
     ">
     Welcome to Easy Sheets.
   </h1>
-
-  <!-- Hero content -->
-  <div class="hero-panel" role="region" aria-labelledby="hero-title">
-    <h2
-      style="
-        font-size: 1.8rem; 
-        font-weight: 600; 
-        color: var(--accent, #555);
-        margin-bottom: 1rem;
-      ">
-      Plan smarter. Study better. Feel in control.
-    </h2>
-
-    <p
-      style="
-        max-width: 700px; 
-        font-size: 1rem; 
-        line-height: 1.6; 
-        color: var(--muted, #666);
-        margin-bottom: 1.5rem;
-      ">
-      Easy Sheets is your calm, dependable study buddy — built for students who want clear trackers that actually get used.
-      Track grades, manage goals, and monitor finances — all from tidy, beautiful templates you can use instantly.
-    </p>
-
-    <div class="sub" style="margin-bottom: 1.5rem; color: var(--muted, #888);">
-      Designed for college & working students — minimal setup, lifetime usefulness.
+  <!-- HERO -->
+  <section id="home" class="hero" aria-label="Intro">
+    <div class="hero-panel" role="region" aria-labelledby="hero-title">
+      <div>
+        <h2 id="hero-title">Plan smarter. Study better. Feel in control.</h2>
+        <p>
+          Easy Sheets is your calm, dependable study buddy — built for students who want clear trackers that actually get used.
+          Track grades, manage goals, and monitor finances — all from tidy, beautiful templates you can use instantly.
+        </p>
+        <div class="sub" style="margin-top:10px;color:var(--muted)">Designed for college & working students — minimal setup, lifetime usefulness.</div>
+        <a class="cta" href="#products" aria-label="Explore Easy Sheets products">Explore templates →</a>
+      </div>
     </div>
-
-    <a class="cta" href="#products" aria-label="Explore Easy Sheets products"
-      style="
-        display: inline-block; 
-        background: var(--primary, #ff4081);
-        color: white; 
-        font-weight: 600;
-        padding: 12px 24px; 
-        border-radius: 8px; 
-        text-decoration: none;
-        transition: background 0.3s ease;
-      "
-      onmouseover="this.style.background='var(--primary-hover, #e03774)'"
-      onmouseout="this.style.background='var(--primary, #ff4081)'">
-      Explore templates →
-    </a>
-  </div>
 </section>
 
   <!-- PRODUCTS -->
@@ -521,6 +488,7 @@ function submitChat(e){
 </script>
 </body>
 </html>
+
 
 
 
