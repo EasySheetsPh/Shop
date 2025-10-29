@@ -136,7 +136,8 @@
       transition: transform 0.6s ease-in-out;
     }
 
-    .carousel-slide img {
+    .carousel-slide img,
+    .carousel-slide video {
       width: 100%;
       border-radius: 10px;
     }
@@ -285,6 +286,10 @@
       <div class="carousel-container" id="carousel1">
         <div class="carousel-slide">
           <img src="https://i.imgur.com/244I7Hu.png" alt="Blossom Pink 1">
+          <video controls muted>
+            <source src="https://i.imgur.com/7SHhN37.mp4" type="video/mp4">
+            Your browser does not support video.
+          </video>
           <img src="https://i.imgur.com/OFHzI67.png" alt="Blossom Pink 2">
           <img src="https://i.imgur.com/nWSe99c.png" alt="Blossom Pink 3">
           <img src="https://i.imgur.com/C5jMRJU.png" alt="Blossom Pink 4">
@@ -302,6 +307,10 @@
       <div class="carousel-container" id="carousel2">
         <div class="carousel-slide">
           <img src="https://i.imgur.com/e3M5TMg.png" alt="Forest Green 1">
+          <video controls muted>
+            <source src="https://i.imgur.com/bh6P4u2.mp4" type="video/mp4">
+            Your browser does not support video.
+          </video>
           <img src="https://i.imgur.com/QsdFPXU.png" alt="Forest Green 2">
           <img src="https://i.imgur.com/erD7739.png" alt="Forest Green 3">
           <img src="https://i.imgur.com/yCDqnLy.png" alt="Forest Green 4">
@@ -348,7 +357,7 @@
     function moveSlide(id, direction) {
       const container = document.getElementById(id);
       const slide = container.querySelector('.carousel-slide');
-      const slides = slide.querySelectorAll('img');
+      const slides = slide.querySelectorAll('img, video');
       let index = parseInt(slide.getAttribute('data-index')) || 0;
       index = (index + direction + slides.length) % slides.length;
       slide.style.transform = `translateX(-${index * 100}%)`;
