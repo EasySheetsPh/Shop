@@ -284,7 +284,28 @@
   </section>
 
   <!-- PRODUCTS -->
-  <section id="products" aria-label="Products">
+  <section id="products" aria-label="Products"
+     style="
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    min-height: 50vh; 
+    background-color: var(--background, #fff);
+    padding: 40px 20px;
+  ">
+
+    <!-- Title outside hero-panel -->
+  <h1 id="hero-title"
+    style="
+      font-size: 4rem; 
+      font-weight: 800; 
+      margin-bottom: 1.5rem; 
+      color: var(--muted);
+    ">
+    Google Sheet Products
+  </h1>
     <div class="products">
 
       <!-- CARD 1: Blossom Pink (images + video) -->
@@ -471,6 +492,7 @@ function submitChat(e){
 </script>
 </body>
 </html>
+
 
 
 
