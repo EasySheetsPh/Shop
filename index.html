@@ -23,22 +23,24 @@
     }
 
     body {
-      background-color: #fff;
+      background: linear-gradient(180deg, #e8f0e5 0%, #ffffff 100%);
       color: var(--deep);
-      line-height: 1.6;
       overflow-x: hidden;
     }
 
+    /* ===== NAVBAR ===== */
     header {
-      background-color: var(--deep);
-      color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
       z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .logo-container {
@@ -48,22 +50,25 @@
     }
 
     .logo-container img {
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
     }
 
     header h1 {
       font-weight: 600;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       letter-spacing: 0.5px;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
 
     nav a {
       color: #fff;
       margin-left: 1.5rem;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      font-weight: 500;
       transition: 0.3s;
     }
 
@@ -71,31 +76,49 @@
       color: var(--sage);
     }
 
+    /* ===== HERO ===== */
     .hero {
+      background: url('https://i.imgur.com/Bksmzma.png') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 6rem 2rem;
-      background-color: var(--light);
+      position: relative;
     }
 
-    .hero h2 {
-      font-size: 2rem;
-      color: var(--dark-green);
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(52,78,65,0.7) 0%, rgba(0,0,0,0.6) 100%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      max-width: 700px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
       margin-bottom: 1rem;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--deep);
+    .hero-content p {
+      font-size: 1.2rem;
       margin-bottom: 2rem;
-      max-width: 600px;
-      margin-inline: auto;
     }
 
     .btn {
       background-color: var(--green);
       color: #fff;
       padding: 0.9rem 1.8rem;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 1rem;
       text-decoration: none;
       transition: 0.3s;
@@ -106,29 +129,41 @@
       transform: scale(1.05);
     }
 
+    /* ===== PRODUCT SECTION ===== */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 5rem;
+      color: var(--dark-green);
+    }
+
     .product-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
-      padding: 4rem 2rem;
-      background-color: var(--light);
+      padding: 3rem 2rem 5rem;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .product {
       background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 450px;
-      flex: 1 1 400px;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
       padding: 1.5rem;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
     }
 
     .carousel-container {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
 
     .carousel-slide {
@@ -136,10 +171,9 @@
       transition: transform 0.6s ease-in-out;
     }
 
-    .carousel-slide img,
-    .carousel-slide video {
+    .carousel-slide img, .carousel-slide video {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     .arrow {
@@ -165,7 +199,7 @@
 
     .product h4 {
       margin-top: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--dark-green);
     }
 
@@ -189,25 +223,35 @@
       background-color: var(--dark-green);
     }
 
-    .about {
-      padding: 4rem 2rem;
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: linear-gradient(180deg, #3a5a40, #344e41);
+      color: #fff;
       text-align: center;
-      background-color: #fff;
+      padding: 4rem 2rem;
     }
 
-    .about h3 {
-      color: var(--dark-green);
+    .testimonials h3 {
       font-size: 1.8rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .about p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: var(--deep);
-      font-size: 1.05rem;
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
 
+    .testimonial {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-style: italic;
+    }
+
+    /* ===== CONTACT ===== */
     .contact {
       padding: 3rem 2rem;
       background-color: var(--deep);
@@ -256,7 +300,9 @@
     }
 
     @media (max-width: 900px) {
-      .product-section { flex-direction: column; align-items: center; }
+      header h1 { font-size: 1.2rem; }
+      .hero-content h2 { font-size: 2rem; }
+      .product-section { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -269,26 +315,28 @@
     </div>
     <nav>
       <a href="#home">Home</a>
-      <a href="#product">Product</a>
-      <a href="#about">About</a>
+      <a href="#product">Products</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section id="home" class="hero">
-    <h2>Plan Smarter. Study Better. Live Organized.</h2>
-    <p>Your calm, reliable study buddy — helping students track their goals, grades, and growth in one smart system.</p>
-    <a href="#product" class="btn">Explore Templates</a>
+    <div class="hero-content">
+      <h2>Plan Smarter. Study Better. Live Organized.</h2>
+      <p>Your all-in-one academic tracker and study companion — designed to keep you focused, balanced, and in control.</p>
+      <a href="#product" class="btn">Explore Templates</a>
+    </div>
   </section>
 
-  <section id="product" class="product-section">
+  <h2 class="section-title" id="product">Our Trackers</h2>
+
+  <section class="product-section">
     <div class="product">
       <div class="carousel-container" id="carousel1">
         <div class="carousel-slide">
           <img src="https://i.imgur.com/244I7Hu.png" alt="Blossom Pink 1">
           <video controls muted>
             <source src="https://i.imgur.com/7SHhN37.mp4" type="video/mp4">
-            Your browser does not support video.
           </video>
           <img src="https://i.imgur.com/OFHzI67.png" alt="Blossom Pink 2">
           <img src="https://i.imgur.com/nWSe99c.png" alt="Blossom Pink 3">
@@ -298,8 +346,8 @@
         <button class="arrow prev" onclick="moveSlide('carousel1', -1)">&#10094;</button>
         <button class="arrow next" onclick="moveSlide('carousel1', 1)">&#10095;</button>
       </div>
-      <h4>All-In-One Student Academic Tracker 2025 | Blossom Pink</h4>
-      <p>A soft pink theme for calm planning and organization.</p>
+      <h4>All-In-One Student Academic Tracker | Blossom Pink</h4>
+      <p>Soft pink tones meet powerful productivity — built for clarity and calm focus.</p>
       <a href="https://payhip.com/b/ewvNE" target="_blank">View Product</a>
     </div>
 
@@ -309,7 +357,6 @@
           <img src="https://i.imgur.com/e3M5TMg.png" alt="Forest Green 1">
           <video controls muted>
             <source src="https://i.imgur.com/bh6P4u2.mp4" type="video/mp4">
-            Your browser does not support video.
           </video>
           <img src="https://i.imgur.com/QsdFPXU.png" alt="Forest Green 2">
           <img src="https://i.imgur.com/erD7739.png" alt="Forest Green 3">
@@ -319,22 +366,26 @@
         <button class="arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</button>
         <button class="arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</button>
       </div>
-      <h4>All-In-One Student Academic Tracker 2025 | Forest Green</h4>
-      <p>A deep green theme for focus, balance, and growth.</p>
+      <h4>All-In-One Student Academic Tracker | Forest Green</h4>
+      <p>A calm green interface for clarity, growth, and laser focus.</p>
       <a href="https://payhip.com/b/Fjfx3" target="_blank">View Product</a>
     </div>
 
     <div class="product">
-      <img src="https://i.imgur.com/TknptzJ.png" alt="Budget Tracker" style="width:100%; border-radius:10px;">
+      <img src="https://i.imgur.com/TknptzJ.png" alt="Budget Tracker" style="width:100%; border-radius:12px;">
       <h4>FREE Easy Sheets Budget Tracker for Students</h4>
-      <p>Track your daily expenses and stay organized for free!</p>
+      <p>Keep your student finances in check effortlessly — and it’s totally free.</p>
       <a href="https://payhip.com/b/gG7nJ" target="_blank">Get Free Copy</a>
     </div>
   </section>
 
-  <section id="about" class="about">
-    <h3>Our Story</h3>
-    <p>Easy Sheets began with one student’s struggle — balancing classes, deadlines, and a tight budget while trying to keep grades steady. Instead of another half-worked planner, a simple Google Sheets system was built to bring clarity. What started as a personal tool grew into a calm, structured system that helps students achieve academic independence. Easy Sheets exists to be your digital study buddy — smart, minimal, and focused on helping you plan smarter and live organized.</p>
+  <section class="testimonials">
+    <h3>What Students Love About Easy Sheets</h3>
+    <div class="testimonial-grid">
+      <div class="testimonial">“This tracker literally saved my semester. Everything’s in one place and looks so aesthetic!”</div>
+      <div class="testimonial">“The design is calm and motivating. I finally feel organized without overthinking it.”</div>
+      <div class="testimonial">“Perfect for working students like me — it keeps me on top of my budget and deadlines.”</div>
+    </div>
   </section>
 
   <section id="contact" class="contact">
@@ -364,6 +415,5 @@
       slide.setAttribute('data-index', index);
     }
   </script>
-
 </body>
 </html>
