@@ -19,12 +19,14 @@
       padding: 0;
       box-sizing: border-box;
       font-family: var(--font-main);
+      scroll-behavior: smooth;
     }
 
     body {
       background-color: #fff;
       color: var(--deep);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     header {
@@ -39,9 +41,22 @@
       z-index: 1000;
     }
 
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-container img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
     header h1 {
       font-weight: 600;
       font-size: 1.4rem;
+      letter-spacing: 0.5px;
     }
 
     nav a {
@@ -88,6 +103,7 @@
 
     .btn:hover {
       background-color: var(--dark-green);
+      transform: scale(1.05);
     }
 
     .product-section {
@@ -108,6 +124,43 @@
       padding: 1.5rem;
       text-align: center;
     }
+
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.4);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .arrow:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .arrow.prev { left: 10px; }
+    .arrow.next { right: 10px; }
 
     .product h4 {
       margin-top: 1rem;
@@ -209,7 +262,10 @@
 <body>
 
   <header>
-    <h1>Easy Sheets</h1>
+    <div class="logo-container">
+      <img src="https://i.imgur.com/zpKzkXO.png" alt="Easy Sheets Logo">
+      <h1>Easy Sheets</h1>
+    </div>
     <nav>
       <a href="#home">Home</a>
       <a href="#product">Product</a>
@@ -226,24 +282,34 @@
 
   <section id="product" class="product-section">
     <div class="product">
-      <!-- Blossom Pink Imgur Embed -->
-      <blockquote class="imgur-embed-pub" lang="en" data-id="a/PRwKe3P" data-context="false">
-        <a href="//imgur.com/a/PRwKe3P">Blossom Pink</a>
-      </blockquote>
-      <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
+      <div class="carousel-container" id="carousel1">
+        <div class="carousel-slide">
+          <img src="https://i.imgur.com/244I7Hu.png" alt="Blossom Pink 1">
+          <img src="https://i.imgur.com/OFHzI67.png" alt="Blossom Pink 2">
+          <img src="https://i.imgur.com/nWSe99c.png" alt="Blossom Pink 3">
+          <img src="https://i.imgur.com/C5jMRJU.png" alt="Blossom Pink 4">
+          <img src="https://i.imgur.com/cK2r8lK.png" alt="Blossom Pink 5">
+        </div>
+        <button class="arrow prev" onclick="moveSlide('carousel1', -1)">&#10094;</button>
+        <button class="arrow next" onclick="moveSlide('carousel1', 1)">&#10095;</button>
+      </div>
       <h4>All-In-One Student Academic Tracker 2025 | Blossom Pink</h4>
       <p>A soft pink theme for calm planning and organization.</p>
       <a href="https://payhip.com/b/ewvNE" target="_blank">View Product</a>
     </div>
 
     <div class="product">
-      <!-- Forest Green Imgur Embed -->
-      <blockquote class="imgur-embed-pub" lang="en" data-id="a/tYDmZtq">
-        <a href="//imgur.com/a/tYDmZtq">Forest Green</a>
-      </blockquote>
-      <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
+      <div class="carousel-container" id="carousel2">
+        <div class="carousel-slide">
+          <img src="https://i.imgur.com/e3M5TMg.png" alt="Forest Green 1">
+          <img src="https://i.imgur.com/QsdFPXU.png" alt="Forest Green 2">
+          <img src="https://i.imgur.com/erD7739.png" alt="Forest Green 3">
+          <img src="https://i.imgur.com/yCDqnLy.png" alt="Forest Green 4">
+          <img src="https://i.imgur.com/HIUBGDP.png" alt="Forest Green 5">
+        </div>
+        <button class="arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</button>
+        <button class="arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</button>
+      </div>
       <h4>All-In-One Student Academic Tracker 2025 | Forest Green</h4>
       <p>A deep green theme for focus, balance, and growth.</p>
       <a href="https://payhip.com/b/Fjfx3" target="_blank">View Product</a>
@@ -277,6 +343,18 @@
   </footer>
 
   <a href="https://payhip.com/EasySheets" class="floating-cta" target="_blank">Get Easy Sheets 💚</a>
+
+  <script>
+    function moveSlide(id, direction) {
+      const container = document.getElementById(id);
+      const slide = container.querySelector('.carousel-slide');
+      const slides = slide.querySelectorAll('img');
+      let index = parseInt(slide.getAttribute('data-index')) || 0;
+      index = (index + direction + slides.length) % slides.length;
+      slide.style.transform = `translateX(-${index * 100}%)`;
+      slide.setAttribute('data-index', index);
+    }
+  </script>
 
 </body>
 </html>
