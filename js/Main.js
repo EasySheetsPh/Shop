@@ -1,8 +1,10 @@
-/* ==============================
-   EASY SHEETS WEBSITE INTERACTIONS
-============================== */
+/* ================================================
+   EASYSHEETSPH INTERACTIONS
+   ================================================ */
 
-//  CAROUSEL FUNCTIONALITY
+// ========== CAROUSEL FUNCTIONALITY ==========
+
+// Store the current slide index for each carousel
 const slideIndexes = {};
 
 function slideNext(id) {
@@ -25,7 +27,8 @@ function slidePrev(id) {
   carousel.style.transform = `translateX(-${slideIndexes[id] * 100}%)`;
 }
 
-// CHAT BOX TOGGLE
+// ========== CHAT BOX TOGGLE ==========
+
 const chatToggle = document.getElementById("chatToggle");
 const chatBox = document.getElementById("chatBox");
 const chatClose = document.getElementById("chatClose");
@@ -40,33 +43,40 @@ if (chatToggle && chatBox && chatClose) {
   });
 }
 
-// CHAT FORM HANDLER
+// ========== CHAT FORM HANDLER ==========
+
 function submitChat(event) {
   event.preventDefault();
 
-  const name = document.querySelector("#chatName, #chatNameWidget").value?.trim();
-  const email = document.querySelector("#chatEmail, #chatEmailWidget").value?.trim();
-  const message = document.querySelector("#chatMessage, #chatMessageWidget").value?.trim();
+  const name = document.getElementById("chatName").value.trim();
+  const email = document.getElementById("chatEmail").value.trim();
+  const message = document.getElementById("chatMessage").value.trim();
 
   if (!name || !email || !message) {
     alert("Please fill out all fields before sending.");
     return false;
   }
 
+  // ✅ (Future integration)
+  // You can later connect this to EmailJS, Google Form, or Formspree.
+  // For now, it just shows a confirmation message.
+
   alert(`Thanks, ${name}! Your message has been sent successfully. We'll reply soon at ${email}.`);
 
-  document.getElementById("contactForm")?.reset();
-  document.getElementById("chatWidgetForm")?.reset();
+  // Reset the form
+  document.getElementById("chatForm").reset();
   chatBox.style.display = "none";
 
   return false;
 }
 
-// SMOOTH SCROLLING
+// ========== SMOOTH SCROLLING FOR NAV LINKS ==========
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
   link.addEventListener("click", e => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute("href"));
-    if (target) target.scrollIntoView({ behavior: "smooth" });
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   });
 });
