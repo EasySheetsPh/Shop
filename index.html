@@ -1,120 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Easy Sheets PH — All-in-One Smart Google Sheet Templates for Students and Professionals.">
-  <title>Easy Sheets PH | All-in-One Smart Template</title>
-  
-  <!-- ====== CSS ====== -->
-  <link rel="stylesheet" href="css/style.css" />
-  
-  <!-- ====== FAVICON ====== -->
-  <link rel="icon" href="images/Logo/logo.png" type="image/png">
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Easy Sheets — Plan Smarter. Study Better. Productivity templates for students that simplify your academic and financial life.">
+  <meta name="author" content="Easy Sheets PH">
+  <title>Easy Sheets — Plan Smarter. Study Better.</title>
 
+  <!-- ✅ External CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ✅ Favicon (optional if you have one in /images/Logo/) -->
+  <link rel="icon" href="images/Logo/Main Logo.jpg" type="image/jpeg">
+</head>
 <body>
-  <!-- ========== HEADER / NAVBAR ========== -->
+
+  <!-- HEADER -->
   <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="images/Logo/logo.png" alt="Easy Sheets PH Logo">
-        <h2>Easy Sheets PH</h2>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <div class="brand">
+      <img src="images/Logo/Main Logo.jpg" alt="Easy Sheets logo" />
+      <h1>Easy Sheets</h1>
+    </div>
+    <nav aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#story">Our story</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- ========== HERO SECTION ========== -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>All Your Student Tools, in One Smart Sheet 💻</h1>
-      <p>Plan better, track smarter, and achieve more — with Easy Sheets PH.</p>
-      <a href="#products" class="btn-primary">Explore Templates</a>
-    </div>
-  </section>
-
-  <!-- ========== PRODUCT SECTION ========== -->
-  <section id="products" class="products">
-    <h2>📘 Our Featured Templates</h2>
-    <p>Everything you need to manage your academic and personal life — all in Google Sheets.</p>
-
-    <div class="carousel" data-id="student">
-      <div class="slides">
-        <div class="slide">
-          <img src="images/Blossom Pink/product1.png" alt="Student Academic Tracker">
-          <h3>All-in-One Student Tracker</h3>
-          <p>Dashboard • Daily Planner • Study Tracker (Pomodoro) • GWA Calculator</p>
-        </div>
-
-        <div class="slide">
-          <img src="images/Forest Green/product2.png" alt="Productivity Planner">
-          <h3>Smart Productivity Planner</h3>
-          <p>Habit Tracker • Task Organizer • Budget Sheet • Notes Section</p>
+  <!-- MAIN -->
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Intro">
+      <h1 id="hero-title">Welcome to Easy Sheets.</h1>
+      <div class="hero-panel" role="region" aria-labelledby="hero-title">
+        <div>
+          <h2>Plan smarter. Study better. Feel in control.</h2>
+          <p>
+            Easy Sheets is your calm, dependable study buddy — built for students who want clear trackers that actually get used.
+            Track grades, manage goals, and monitor finances — all from tidy, beautiful templates you can use instantly.
+          </p>
+          <div class="sub">Designed for college & working students — minimal setup, lifetime usefulness.</div>
+          <a class="cta" href="#products" aria-label="Explore Easy Sheets products">Explore templates →</a>
         </div>
       </div>
+    </section>
 
-      <div class="carousel-controls">
-        <button onclick="slidePrev('student')">&#10094;</button>
-        <button onclick="slideNext('student')">&#10095;</button>
+    <!-- PRODUCTS -->
+    <section id="products" aria-label="Products">
+      <h1 class="section-title">Products</h1>
+      <div class="products">
+
+        <!-- CARD 1: Blossom Pink -->
+        <article class="card" aria-labelledby="bp-title">
+          <div class="carousel" data-id="carousel-1">
+            <div class="slides">
+              <div class="slide"><img src="images/Blossom Pink/1.jpg" alt="Blossom Pink preview 1"></div>
+              <div class="slide"><video controls preload="metadata" poster="images/Blossom Pink/2.jpg"><source src="images/Blossom Pink/3 - Video.mp4" type="video/mp4"></video></div>
+              <div class="slide"><img src="images/Blossom Pink/4.jpg" alt="Blossom Pink preview 2"></div>
+              <div class="slide"><img src="images/Blossom Pink/5.jpg" alt="Blossom Pink preview 3"></div>
+              <div class="slide"><img src="images/Blossom Pink/6.jpg" alt="Blossom Pink preview 4"></div>
+            </div>
+            <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-1')">‹</button>
+            <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-1')">›</button>
+          </div>
+          <h3 id="bp-title">All-In-One Student Academic Tracker — Blossom Pink</h3>
+          <p>Soft, calming palette with powerful trackers for grades, tasks, attendance, and goals — made to reduce stress and increase momentum.</p>
+          <div class="product-cta"><a href="https://payhip.com/b/ewvNE" target="_blank" rel="noopener">View product</a></div>
+        </article>
+
+        <!-- CARD 2: Forest Green -->
+        <article class="card" aria-labelledby="fg-title">
+          <div class="carousel" data-id="carousel-2">
+            <div class="slides">
+              <div class="slide"><img src="images/Forest Green/3.jpg" alt="Forest Green preview 1"></div>
+              <div class="slide"><video controls preload="metadata" poster="images/Forest Green/5.jpg"><source src="images/Forest Green/video.mp4" type="video/mp4"></video></div>
+              <div class="slide"><img src="images/Forest Green/6.jpg" alt="Forest Green preview 2"></div>
+              <div class="slide"><img src="images/Forest Green/7.jpg" alt="Forest Green preview 3"></div>
+            </div>
+            <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-2')">‹</button>
+            <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-2')">›</button>
+          </div>
+          <h3 id="fg-title">All-In-One Student Academic Tracker — Forest Green</h3>
+          <p>Focus-forward layout with clear visual summaries. Built for students who want structure and momentum, not clutter.</p>
+          <div class="product-cta"><a href="https://payhip.com/b/Fjfx3" target="_blank" rel="noopener">View product</a></div>
+        </article>
+
+        <!-- CARD 3: Free Tracker -->
+        <article class="card" aria-labelledby="bt-title">
+          <div class="carousel" data-id="carousel-3">
+            <div class="slides">
+              <div class="slide"><img src="images/Forest Green/Copy of Ultimate 9-in-1.jpg" alt="Budget tracker preview"></div>
+            </div>
+          </div>
+          <h3 id="bt-title">FREE Easy Sheets Budget Tracker for Students</h3>
+          <p>Track expenses, plan savings, and build money habits — made simple for students who want practical results.</p>
+          <div class="product-cta"><a href="https://payhip.com/b/gG7nJ" target="_blank" rel="noopener">Get free copy</a></div>
+        </article>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== ABOUT SECTION ========== -->
-  <section id="about" class="about">
-    <h2>🌱 About Easy Sheets PH</h2>
-    <p>
-      Easy Sheets PH was built to simplify the way students and professionals organize their work.
-      Each template is designed to save time, boost productivity, and make your academic journey more structured and enjoyable.
-    </p>
-    <p>
-      Crafted with care in the Philippines 🇵🇭 — combining smart systems and clean design.
-    </p>
-  </section>
+    <!-- STORY -->
+    <section class="story" id="story" aria-labelledby="story-title">
+      <h3 id="story-title">Our Story — Built from the struggle</h3>
+      <p>
+        Easy Sheets started when the founder — a student juggling classes, work, and bills — built a simple Google Sheets system to survive the semester.
+        That tool became a habit, then a toolkit: clear visuals, automatic summaries, and practical workflows students actually stick with.
+        Today Easy Sheets is a friendly, smart companion that helps you make better choices faster — so you can focus on what matters.
+      </p>
+      <div class="test-grid">
+        <div class="test">“Saved my semester — I finally saw where my time went.” — final-year student</div>
+        <div class="test">“Helps me balance work and study. I use it every week.” — working student</div>
+        <div class="test">“Simple, aesthetic, and useful — exactly what I needed.” — college sophomore</div>
+      </div>
+    </section>
 
-  <!-- ========== CONTACT SECTION ========== -->
-  <section id="contact" class="contact">
-    <h2>📩 Contact Us</h2>
+    <!-- CONTACT -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h3 id="contact-title">Get in touch</h3>
+      <p>Questions, bulk licenses, or collaboration? Send a note — we reply personally.</p>
+      <p><a href="mailto:easysheets.contacts@gmail.com">easysheets.contacts@gmail.com</a></p>
+      <p>
+        <a href="https://www.instagram.com/easysheetsonig/" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.facebook.com/profile.php?id=61582341212031" target="_blank" rel="noopener">Facebook</a> ·
+        <a href="https://ph.pinterest.com/EasySheets_/" target="_blank" rel="noopener">Pinterest</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- CHAT UI -->
+  <button class="chat-btn" id="chatToggle" aria-label="Open chat">✉</button>
+
+  <div class="chat-box" id="chatBox" style="display:none" role="dialog" aria-modal="true" aria-hidden="true">
+    <h4>Chat with Easy Sheets</h4>
+    <p>Quick question? Send it here and we'll reply by email.</p>
     <form id="chatForm" onsubmit="return submitChat(event)">
-      <input type="text" id="chatName" placeholder="Your Name" required />
-      <input type="email" id="chatEmail" placeholder="Your Email" required />
-      <textarea id="chatMessage" rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn-primary">Send Message</button>
+      <input id="chatName" type="text" placeholder="Your name" required />
+      <input id="chatEmail" type="email" placeholder="Your email" required />
+      <textarea id="chatMessage" rows="4" placeholder="Write your message..." required></textarea>
+      <button class="send" type="submit">Send message</button>
     </form>
-  </section>
-
-  <!-- ========== CHAT WIDGET ========== -->
-  <div id="chatToggle" class="chat-bubble">💬</div>
-
-  <div id="chatBox" class="chat-box" style="display: none;">
-    <div class="chat-header">
-      <h4>Easy Sheets PH</h4>
-      <button id="chatClose">×</button>
-    </div>
-    <div class="chat-body">
-      <p>Hi! 👋 How can we help you today?</p>
-      <form id="chatForm" onsubmit="return submitChat(event)">
-        <input type="text" id="chatName" placeholder="Your Name" required />
-        <input type="email" id="chatEmail" placeholder="Your Email" required />
-        <textarea id="chatMessage" placeholder="Type your message..." required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
+    <button class="close" id="chatClose">Close</button>
   </div>
 
-  <!-- ========== FOOTER ========== -->
-  <footer>
-    <p>© 2025 Easy Sheets PH — All Rights Reserved.</p>
-  </footer>
-
-  <!-- ========== SCRIPTS ========== -->
+  <!-- ✅ External JS -->
   <script src="js/Main.js"></script>
 </body>
 </html>
-
