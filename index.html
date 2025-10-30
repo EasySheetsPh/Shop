@@ -3,7 +3,28 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Easy Sheets — Plan Smarter. Study Better.</title>
+<title>Easy Sheets — All-In-One Smart Google Sheet Templates</title>
+
+<!-- SEO / Open Graph -->
+<meta name="description" content="Easy Sheets PH — Smart, ready-to-use Google Sheets templates for students and professionals. Track habits, plan budgets, and boost productivity effortlessly.">
+<link rel="icon" href="/assets/favicon.png" type="image/png" />
+
+<meta property="og:title" content="Easy Sheets — Plan Smarter. Study Better." />
+<meta property="og:description" content="Smart Google Sheet templates for students & professionals. Instant access via Payhip." />
+<meta property="og:image" content="https://i.imgur.com/zpKzkXO.png" />
+<meta property="og:type" content="website" />
+
+<!-- Analytics placeholder (replace G-XXXXXXX with your GA ID or remove) -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXX');
+</script>
+-->
+
 <style>
   :root{
     --bg-soft: #fbfcfb;
@@ -24,6 +45,7 @@
   *{box-sizing:border-box}
   html,body{height:100%;margin:0;background:linear-gradient(180deg,#f9fbf9 0%, #f2f6f2 100%);color:var(--text);-webkit-font-smoothing:antialiased}
   a{color:inherit}
+  img{max-width:100%;display:block}
 
   /* HEADER */
   header{
@@ -54,24 +76,32 @@
   nav a{font-size:0.95rem;color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:8px}
   nav a:hover{color:var(--accent-2);background:rgba(88,129,87,0.06)}
 
-  /* make page content start below header */
+  /* main starts below header */
   main{padding-top:calc(var(--header-h) + 24px)}
 
-  /* HERO (glass panel centered on subtle gradient) */
+  /* HERO */
   .hero {
-    min-height:66vh;
+    min-height:62vh;
     display:flex;
     align-items:center;
     justify-content:center;
     padding:48px 20px;
     background: linear-gradient(120deg, rgba(163,177,138,0.08), rgba(88,129,87,0.06));
   }
+  .hero-wrap{width:100%;max-width:1100px;padding:20px}
+  .hero-title{
+    font-size:2.6rem;
+    font-weight:800;
+    margin:0 0 10px 0;
+    color:var(--muted);
+    text-align:center;
+    line-height:1.02;
+  }
   .hero-panel{
     width:100%;
-    max-width:1100px;
     background:var(--glass-strong);
     border-radius:20px;
-    padding:40px;
+    padding:30px;
     box-shadow:var(--card-shadow);
     border: 1px solid rgba(255,255,255,0.6);
     display:grid;
@@ -79,8 +109,9 @@
     gap:18px;
     align-items:center;
     text-align:center;
+    margin-top:18px;
   }
-  .hero h2{font-size:2.2rem;margin:0;color:var(--accent-3)}
+  .hero h2{font-size:1.55rem;margin:0;color:var(--accent-3)}
   .hero p{margin:8px 0 0;color:var(--text);max-width:780px;margin-left:auto;margin-right:auto;line-height:1.5}
   .hero .cta {
     margin-top:18px;
@@ -91,12 +122,20 @@
   }
   .hero .sub { margin-top:6px;color:var(--muted);font-size:0.95rem }
 
-  /* PRODUCTS grid (3 columns desktop, 1 mobile) */
+  /* trust bar */
+  .trust-bar {
+    max-width:900px;margin:20px auto 0;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,0.8);
+    display:flex;gap:12px;align-items:center;justify-content:center;font-weight:600;color:var(--accent-3);box-shadow:var(--card-shadow);
+  }
+  .trust-bar small{color:var(--muted);font-weight:500}
+
+  /* PRODUCTS grid */
+  .products-wrap{max-width:1200px;margin:36px auto;padding:8px 20px}
   .products {
-    max-width:1200px;margin:36px auto;padding:24px;
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     gap:20px;
+    align-items:start;
   }
   @media (max-width:980px){
     .products{grid-template-columns:repeat(2,1fr)}
@@ -106,13 +145,21 @@
   }
 
   .card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,251,250,0.95));
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,251,250,0.98));
     border-radius:var(--radius);
     padding:14px;
     box-shadow:var(--card-shadow);
     border:1px solid rgba(52,78,65,0.04);
     display:flex;flex-direction:column;
-    gap:12px;
+    gap:12px;transition:transform .28s ease, box-shadow .28s ease;
+  }
+  .card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(18,30,20,0.12)}
+  .card h3{margin:0;font-size:1.05rem;color:var(--accent-3)}
+  .card p{margin:0;color:var(--muted);font-size:0.95rem}
+  .product-cta {margin-top:12px;align-self:flex-start}
+  .product-cta a{
+    display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;color:white;
+    background:linear-gradient(90deg,var(--accent-2),var(--accent-3));font-weight:600;
   }
 
   /* carousel area */
@@ -134,7 +181,6 @@
   .slide img, .slide video {
     width:100%;height:auto;display:block;border-radius:8px;
   }
-
   .arrow {
     position:absolute;top:50%;
     transform:translateY(-50%);
@@ -148,24 +194,15 @@
   .arrow.left{left:12px}
   .arrow.right{right:12px}
 
-  .card h3{margin:0;font-size:1.05rem;color:var(--accent-3)}
-  .card p{margin:0;color:var(--muted);font-size:0.95rem}
-  .card .product-cta {margin-top:12px;align-self:flex-start}
-  .product-cta a{
-    display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;color:white;
-    background:linear-gradient(90deg,var(--accent-2),var(--accent-3));font-weight:600;
-  }
-
-  /* story section */
+  /* story */
   .story {
     max-width:980px;margin:32px auto;padding:36px;border-radius:14px;
-    background: linear-gradient(180deg, rgba(163,177,138,0.08), rgba(88,129,87,0.05));
+    background: linear-gradient(180deg, rgba(163,177,138,0.06), rgba(88,129,87,0.04));
     box-shadow:var(--card-shadow);border:1px solid rgba(52,78,65,0.04);
   }
   .story h3{margin:0 0 8px;color:var(--accent-3)}
   .story p{color:var(--text);line-height:1.6}
 
-  /* testimonials */
   .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
   @media (max-width:980px){.test-grid{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:640px){.test-grid{grid-template-columns:1fr}}
@@ -183,8 +220,10 @@
     box-shadow:var(--card-shadow);border:1px solid rgba(52,78,65,0.04);text-align:center;
   }
   .contact a{color:var(--accent-2);text-decoration:none;font-weight:600}
+  .contact form{max-width:640px;margin:12px auto 0;display:grid;gap:10px}
+  .contact input,.contact textarea{padding:10px;border-radius:10px;border:1px solid rgba(52,78,65,0.06);background:#fff}
 
-  /* CHAT popup (glass) */
+  /* chat popup */
   .chat-btn {
     position:fixed;right:22px;bottom:20px;
     z-index:1500;
@@ -215,18 +254,23 @@
     background:transparent;border:none;color:var(--muted);margin-top:4px;text-decoration:underline;cursor:pointer;
   }
 
+  /* footer */
+  footer{margin-top:28px}
+  .site-footer{max-width:1200px;margin:0 auto;padding:20px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .site-footer a{color:var(--muted);text-decoration:none}
+
   /* small screens tweaks */
   @media (max-width:540px){
     header{padding:10px}
     .brand h1{font-size:1rem}
     .hero-panel{padding:20px}
-    .hero h2{font-size:1.6rem}
-    .products{padding:18px;gap:12px}
+    .hero-title{font-size:1.6rem}
+    .products-wrap{padding:12px}
     .card{padding:12px}
     .chat-box{right:12px;left:12px;bottom:80px;width:auto}
   }
 
-  /* small accessibility helpers */
+  /* accessibility focus */
   button:focus, a:focus {outline:3px solid rgba(88,129,87,0.16)}
 </style>
 </head>
@@ -234,7 +278,6 @@
 
 <header>
   <div class="brand">
-    <!-- use direct hotlink version of your logo -->
     <img src="https://i.imgur.com/zpKzkXO.png" alt="Easy Sheets logo" />
     <h1>Easy Sheets</h1>
   </div>
@@ -247,64 +290,42 @@
 </header>
 
 <main>
-  <!-- HERO -->
-  <section id="home" class="hero" aria-label="Intro"
-     style="
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    min-height: 50vh; 
-    background-color: var(--background, #fff);
-    padding: 40px 20px;
-  ">
 
-  <!-- Title outside hero-panel -->
-  <h1 id="hero-title"
-    style="
-      font-size: 4rem; 
-      font-weight: 800; 
-      margin-bottom: 1.5rem; 
-      color: var(--muted);
-    ">
-    Welcome to Easy Sheets.
-  </h1>
-    <div class="hero-panel" role="region" aria-labelledby="hero-title">
-      <div>
-        <h2 id="hero-title">Plan smarter. Study better. Feel in control.</h2>
-        <p>
-          Easy Sheets is your calm, dependable study buddy — built for students who want clear trackers that actually get used.
-          Track grades, manage goals, and monitor finances — all from tidy, beautiful templates you can use instantly.
-        </p>
-        <div class="sub" style="margin-top:10px;color:var(--muted)">Designed for college & working students — minimal setup, lifetime usefulness.</div>
-        <a class="cta" href="#products" aria-label="Explore Easy Sheets products">Explore templates →</a>
+  <!-- HERO -->
+  <section id="home" class="hero" aria-label="Intro">
+    <div class="hero-wrap">
+      <!-- Headline OUTSIDE the glass panel (conversion-tested) -->
+      <h1 class="hero-title">WELCOME TO EASY SHEETS</h1>
+
+      <div class="hero-panel" role="region" aria-labelledby="hero-heading">
+        <div>
+          <h2 id="hero-heading">Plan smarter. Study better. Feel in control.</h2>
+          <p>
+            Easy Sheets is your calm, dependable study buddy — built for students who want clear trackers that actually get used.
+            Track grades, manage goals, and monitor finances — all from tidy, beautiful templates you can use instantly.
+          </p>
+          <div class="sub">Designed for college & working students — minimal setup, lifetime usefulness.</div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <a class="cta" href="#products" aria-label="Explore Easy Sheets products">Browse templates</a>
+            <a class="cta" href="#contact" style="background:transparent;color:var(--accent-3);box-shadow:none;border:1px solid rgba(52,78,65,0.06)">Contact us</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-bar" role="status" aria-live="polite">
+        <span>💚 Trusted by 1,200+ students</span>
+        <small>·</small>
+        <span>⭐ Rated 4.9/5 on Payhip</span>
       </div>
     </div>
   </section>
 
   <!-- PRODUCTS -->
-  <section id="products" aria-label="Products" 
-    style="
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    min-height: 50vh; 
-    background-color: var(--background, #fff);
-    padding: 40px 20px;
-  ">
-  <!-- Title outside hero-panel -->
-  <h1 id="hero-title"
-    style="
-      font-size: 4rem; 
-      font-weight: 600; 
-      margin-bottom: 1.5rem; 
-      color: var(--muted);
-    ">
-    Products
-  </h1>
+  <section id="products" class="products-wrap" aria-label="Products">
+    <h2 style="text-align:center;font-size:1.6rem;margin:6px 0 18px;color:var(--accent-3)">Products</h2>
+    <p style="text-align:center;color:var(--muted);margin:0 0 18px">Click any product to view & purchase on Payhip (secure checkout).</p>
+
     <div class="products">
 
       <!-- CARD 1: Blossom Pink (images + video) -->
@@ -321,6 +342,7 @@
           <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-1')">‹</button>
           <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-1')">›</button>
         </div>
+
         <h3 id="bp-title">All-In-One Student Academic Tracker — Blossom Pink</h3>
         <p>Soft, calming palette with powerful trackers for grades, tasks, attendance, and goals — made to reduce stress and increase momentum.</p>
         <div class="product-cta"><a href="https://payhip.com/b/ewvNE" target="_blank" rel="noopener">View product</a></div>
@@ -340,6 +362,7 @@
           <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-2')">‹</button>
           <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-2')">›</button>
         </div>
+
         <h3 id="fg-title">All-In-One Student Academic Tracker — Forest Green</h3>
         <p>Focus-forward layout with clear visual summaries. Built for students who want structure and momentum, not clutter.</p>
         <div class="product-cta"><a href="https://payhip.com/b/Fjfx3" target="_blank" rel="noopener">View product</a></div>
@@ -380,8 +403,25 @@
   <section id="contact" class="contact" aria-labelledby="contact-title">
     <h3 id="contact-title">Get in touch</h3>
     <p>Questions, bulk licenses, or collaboration? Send a note — we reply personally.</p>
-    <p><a href="mailto:easysheets.contacts@gmail.com">easysheets.contacts@gmail.com</a></p>
-    <p>
+
+    <!-- Contact form (Formspree) -->
+    <form id="contactForm" action="https://formspree.io/f/xanlbqze" method="POST" class="mt-4">
+      <input name="name" type="text" placeholder="Your name" required />
+      <input name="_replyto" type="email" placeholder="Your email" required />
+      <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+
+      <!-- optional hidden fields -->
+      <input type="hidden" name="_subject" value="New message from Easy Sheets website">
+      <!-- Add _cc if you want copies: <input type="hidden" name="_cc" value="you@youremail.com"> -->
+
+      <button type="submit" class="send">Send message</button>
+    </form>
+
+    <p style="margin-top:8px;color:var(--muted);font-size:0.95rem">We'll reply within 24 hours.</p>
+
+    <p style="margin-top:10px">
+      <a href="mailto:easysheets.contacts@gmail.com">easysheets.contacts@gmail.com</a>
+      <br>
       <a href="https://www.instagram.com/easysheetsonig/" target="_blank" rel="noopener">Instagram</a> ·
       <a href="https://www.facebook.com/profile.php?id=61582341212031" target="_blank" rel="noopener">Facebook</a> ·
       <a href="https://ph.pinterest.com/EasySheets_/" target="_blank" rel="noopener">Pinterest</a>
@@ -390,46 +430,50 @@
 
 </main>
 
-<!-- CHAT UI -->
+<!-- CHAT UI (submits to Formspree via fetch) -->
 <button class="chat-btn" id="chatToggle" aria-label="Open chat">✉</button>
 
 <div class="chat-box" id="chatBox" style="display:none" role="dialog" aria-modal="true" aria-hidden="true">
-  <h4>Chat with Easy Sheets</h4>
-  <p>Quick question? Send it here and we'll reply by email.</p>
-  <form id="chatForm" onsubmit="return submitChat(event)">
-    <input id="chatName" type="text" placeholder="Your name" required />
-    <input id="chatEmail" type="email" placeholder="Your email" required />
-    <textarea id="chatMessage" rows="4" placeholder="Write your message..." required></textarea>
+  <h4>Quick message</h4>
+  <p>Ask a short question — we'll reply by email.</p>
+  <form id="chatForm">
+    <input id="chatName" name="name" type="text" placeholder="Your name" required />
+    <input id="chatEmail" name="_replyto" type="email" placeholder="Your email" required />
+    <textarea id="chatMessage" name="message" rows="4" placeholder="Write your message..." required></textarea>
     <button class="send" type="submit">Send message</button>
   </form>
   <button class="close" id="chatClose">Close</button>
 </div>
 
-<script>
-/* ---------- Carousel logic: supports multiple carousels ---------- */
-/* Each carousel container uses data-id: "carousel-N". We track index per id. */
-const carousels = {};
+<footer>
+  <div class="site-footer">
+    <div>
+      <strong>Easy Sheets</strong><br>
+      Digital templates sold on Payhip — instant download after purchase.
+    </div>
+    <div style="text-align:right">
+      <small>© <span id="year"></span> Easy Sheets • <a href="#contact">Contact</a> • <a href="#story">Our story</a></small>
+    </div>
+  </div>
+</footer>
 
-// initialize all carousels found
+<script>
+/* ---------- Carousel logic (supports multiple carousels) ---------- */
+const carousels = {};
 document.querySelectorAll('.carousel').forEach((c, idx) => {
   const id = c.getAttribute('data-id') || ('carousel-' + (idx+1));
   const slides = c.querySelectorAll('.slide');
-  carousels[id] = { element: c, slides: slides, index: 0 };
-  // ensure first slide visible
+  const slidesWrapper = c.querySelector('.slides');
+  carousels[id] = { element: c, slides: slides, index: 0, wrapper: slidesWrapper };
   updateCarousel(id);
 });
 
 function updateCarousel(id){
   const info = carousels[id];
   if(!info) return;
-  const slides = info.slides;
-  const width = info.element.clientWidth;
-  // translate container slides wrapper
-  const slidesWrapper = info.element.querySelector('.slides');
-  if(!slidesWrapper) return;
+  const slidesWrapper = info.wrapper;
   slidesWrapper.style.transform = `translateX(-${info.index * 100}%)`;
 }
-
 function slideNext(id){
   const info = carousels[id];
   if(!info) return;
@@ -442,52 +486,93 @@ function slidePrev(id){
   info.index = (info.index - 1 + info.slides.length) % info.slides.length;
   updateCarousel(id);
 }
+window.addEventListener('resize', () => Object.keys(carousels).forEach(k => updateCarousel(k)));
 
-/* ensure carousels update on resize */
-window.addEventListener('resize', () => {
-  Object.keys(carousels).forEach(k => updateCarousel(k));
-});
-
-/* ---------- Chat logic: mailto send ---------- */
+/* ---------- Chat popup show/hide ---------- */
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
 const chatClose = document.getElementById('chatClose');
 
 chatToggle.addEventListener('click', () => {
-  const visible = chatBox.style.display !== 'none';
-  chatBox.style.display = visible ? 'none' : 'block';
-  chatBox.setAttribute('aria-hidden', visible ? 'true' : 'false');
+  const open = chatBox.style.display !== 'block';
+  chatBox.style.display = open ? 'block' : 'none';
+  chatBox.setAttribute('aria-hidden', open ? 'false' : 'true');
+  if(open) document.getElementById('chatName').focus();
 });
-
 chatClose.addEventListener('click', () => {
   chatBox.style.display = 'none';
   chatBox.setAttribute('aria-hidden','true');
 });
 
-/* submit chat: opens user's mail client with prefilled content */
-function submitChat(e){
+/* ---------- Chat form submit via fetch to Formspree ---------- */
+const CHAT_ENDPOINT = 'https://formspree.io/f/xanlbqze';
+const chatForm = document.getElementById('chatForm');
+
+chatForm.addEventListener('submit', async function(e) {
   e.preventDefault();
-  const name = document.getElementById('chatName').value.trim();
-  const email = document.getElementById('chatEmail').value.trim();
-  const message = document.getElementById('chatMessage').value.trim();
-  if(!name || !email || !message){
-    alert('Please fill all fields.');
-    return false;
+  const submitBtn = chatForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  const formData = new FormData(chatForm);
+  // add a small default subject
+  formData.append('_subject', 'Quick chat from website');
+
+  try {
+    const res = await fetch(CHAT_ENDPOINT, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      chatForm.innerHTML = '<p style="color:var(--accent-3);font-weight:700">Thanks — your message was sent. We\'ll reply by email soon.</p>';
+      setTimeout(()=> { chatBox.style.display = 'none'; chatBox.setAttribute('aria-hidden','true'); }, 2200);
+    } else {
+      const data = await res.json();
+      chatForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Error: ${data.error || 'Please try again later.'}</p>`);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send message';
+    }
+  } catch (err) {
+    chatForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Network error. Please try again later.</p>`);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send message';
   }
-  const subject = encodeURIComponent(`Website chat from ${name}`);
-  const body = encodeURIComponent(`${message}\n\nFrom: ${name} <${email}>`);
-  const mailto = `mailto:easysheets.contacts@gmail.com?subject=${subject}&body=${body}`;
-  // open user's default mail app
-  window.location.href = mailto;
-  // hide chat after action
-  chatBox.style.display = 'none';
-  chatBox.setAttribute('aria-hidden','true');
-  // clear form
-  e.target.reset();
-  // small confirmation for user
-  setTimeout(()=> alert('Your email app should open — send the message to complete.'),150);
-  return false;
+});
+
+/* ---------- Hook contact form to Formspree (progressive enhancement) ---------- */
+const contactForm = document.getElementById('contactForm');
+if(contactForm){
+  contactForm.addEventListener('submit', async function(e){
+    // Let the native HTML form submit happen (works without JS), but enhance with AJAX for better UX
+    if(window.fetch){
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      const data = new FormData(contactForm);
+      try {
+        const r = await fetch(contactForm.action, { method:'POST', body: data, headers: {'Accept':'application/json'} });
+        if(r.ok){
+          contactForm.innerHTML = '<p style="color:var(--accent-3);font-weight:700">Thanks — we received your message and will reply within 24 hours.</p>';
+        } else {
+          const d = await r.json();
+          contactForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Error: ${d.error || 'Please try again later.'}</p>`);
+          btn.disabled = false;
+          btn.textContent = 'Send message';
+        }
+      } catch(err){
+        contactForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Network error. Please try again later.</p>`);
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      }
+    }
+  });
 }
+
+/* footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
