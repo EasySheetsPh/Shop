@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products — Easy Sheets</title>
+  <meta name="description" content="Easy Sheets — Products" />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <style>
+    :root{--bg-soft:#fbfcfb;--glass:rgba(255,255,255,0.7);--accent-2:#588157;--accent-3:#3a5a40;--text:#344e41;--muted:#6b7a6b;--card-shadow:0 8px 30px rgba(18,30,20,0.06);--radius:14px;--header-h:72px;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;background:linear-gradient(180deg,#f9fbf9 0%, #f2f6f2 100%);color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:inherit}img{max-width:100%;display:block}
+    header{position:fixed;left:0;right:0;top:0;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:12px;z-index:1200;background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));backdrop-filter: blur(10px);border-bottom: 1px solid rgba(52,78,65,0.06)}
+    .brand{display:flex;align-items:center;gap:12px}.brand img{width:48px;height:48px;border-radius:50%;object-fit:cover;display:inline-block}.brand h1{font-size:1.1rem;margin:0;color:var(--text);font-weight:700}
+    nav{display:flex;gap:18px;align-items:center}nav a{font-size:0.95rem;color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:8px}nav a:hover{color:var(--accent-2);background:rgba(88,129,87,0.06)}
+    main{padding-top:calc(var(--header-h) + 24px)}
+    .products-wrap{max-width:1200px;margin:36px auto;padding:8px 20px}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+    @media(max-width:980px){.products{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.products{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,251,250,0.98));border-radius:var(--radius);padding:14px;box-shadow:var(--card-shadow);border:1px solid rgba(52,78,65,0.04);display:flex;flex-direction:column;gap:12px}
+    .card h3{margin:0;font-size:1.05rem;color:var(--accent-3)}.card p{margin:0;color:var(--muted);font-size:0.95rem}.product-cta a{display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;color:white;background:linear-gradient(90deg,var(--accent-2),var(--accent-3));font-weight:600}
+    .carousel{position:relative;border-radius:10px;overflow:hidden;background:#fff}.slides{display:flex;transition:transform .45s cubic-bezier(.2,.9,.3,1);width:100%}.slide{min-width:100%;display:block}.slide img,.slide video{width:100%;height:auto;display:block;border-radius:8px}.arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.85);border:1px solid rgba(52,78,65,0.06);width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(20,30,20,0.08)}.arrow.left{left:12px}.arrow.right{right:12px}
+    .site-footer{max-width:1200px;margin:0 auto;padding:20px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="index.html" class="brand-link" aria-label="Go to home" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit">
+        <img src="images/logo.jpg" alt="Easy Sheets logo" />
+        <h1>Easy Sheets</h1>
+      </a>
+    </div>
+    <nav aria-label="Main">
+      <a href="index.html#home">Home</a>
+      <a href="Products.html">Products</a>
+      <a href="About.html">Our story</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="products" class="products-wrap" aria-label="Products">
+      <h2 style="text-align:center;font-size:1.6rem;margin:6px 0 18px;color:var(--accent-3)">Products</h2>
+      <p style="text-align:center;color:var(--muted);margin:0 0 18px">Click any product to view & purchase on Payhip (secure checkout).</p>
+
+      <div class="products">
+        <article class="card" aria-labelledby="bp-title">
+          <div class="carousel" data-id="carousel-1">
+            <div class="slides">
+              <div class="slide"><img src="images/blossom-pink-1.jpg" alt="Blossom Pink preview 1"></div>
+              <div class="slide"><video controls preload="metadata" poster="images/blossom-pink-1.jpg"><source src="images/blossom-pink-demo.mp4" type="video/mp4">Your browser does not support video.</video></div>
+              <div class="slide"><img src="images/blossom-pink-2.jpg" alt="Blossom Pink preview 2"></div>
+            </div>
+            <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-1')">‹</button>
+            <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-1')">›</button>
+          </div>
+          <h3 id="bp-title">All-In-One Student Academic Tracker — Blossom Pink</h3>
+          <p>Soft, calming palette with powerful trackers for grades, tasks, attendance, and goals — made to reduce stress and increase momentum.</p>
+          <div class="product-cta"><a href="https://payhip.com/b/ewvNE" target="_blank" rel="noopener">View product</a></div>
+        </article>
+
+        <article class="card" aria-labelledby="fg-title">
+          <div class="carousel" data-id="carousel-2">
+            <div class="slides">
+              <div class="slide"><img src="images/forest-green-1.jpg" alt="Forest Green preview 1"></div>
+              <div class="slide"><video controls preload="metadata" poster="images/forest-green-1.jpg"><source src="images/forest-green-demo.mp4" type="video/mp4">Your browser does not support video.</video></div>
+              <div class="slide"><img src="images/forest-green-2.jpg" alt="Forest Green preview 2"></div>
+            </div>
+            <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-2')">‹</button>
+            <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-2')">›</button>
+          </div>
+          <h3 id="fg-title">All-In-One Student Academic Tracker — Forest Green</h3>
+          <p>Focus-forward layout with clear visual summaries. Built for students who want structure and momentum, not clutter.</p>
+          <div class="product-cta"><a href="https://payhip.com/b/Fjfx3" target="_blank" rel="noopener">View product</a></div>
+        </article>
+
+        <article class="card" aria-labelledby="bt-title">
+          <div class="carousel" data-id="carousel-3">
+            <div class="slides">
+              <div class="slide"><img src="images/budget-tracker.jpg" alt="Budget tracker preview"></div>
+            </div>
+          </div>
+          <h3 id="bt-title">FREE Easy Sheets Budget Tracker for Students</h3>
+          <p>Track expenses, plan savings, and build money habits — made simple for students who want practical results.</p>
+          <div class="product-cta"><a href="https://payhip.com/b/gG7nJ" target="_blank" rel="noopener">Get free copy</a></div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="site-footer">
+      <div><strong>Easy Sheets</strong><br>Digital templates sold on Payhip — instant download after purchase.</div>
+      <div style="text-align:right"><small>© <span id="year"></span> Easy Sheets • <a href="index.html#contact">Contact</a> • <a href="About.html">Our story</a></small></div>
+    </div>
+  </footer>
+
+  <script>
+    /* carousel logic (simple copy) */
+    const carousels = {};
+    document.querySelectorAll('.carousel').forEach((c, idx) => {
+      const id = c.getAttribute('data-id') || ('carousel-' + (idx+1));
+      const slides = c.querySelectorAll('.slide');
+      const slidesWrapper = c.querySelector('.slides');
+      carousels[id] = { element: c, slides: slides, index: 0, wrapper: slidesWrapper };
+      updateCarousel(id);
+    });
+    function updateCarousel(id){ const info = carousels[id]; if(!info) return; info.wrapper.style.transform = `translateX(-${info.index * 100}%)`; }
+    function slideNext(id){ const info = carousels[id]; if(!info) return; info.index = (info.index + 1) % info.slides.length; updateCarousel(id); }
+    function slidePrev(id){ const info = carousels[id]; if(!info) return; info.index = (info.index - 1 + info.slides.length) % info.slides.length; updateCarousel(id); }
+    window.addEventListener('resize', () => Object.keys(carousels).forEach(k => updateCarousel(k)));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <!-- scroll-reveal: same as index.html to enable animate-on-scroll on this page -->
+  <script>
+    (function(){
+      try{
+        if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const selector = '.card, .hero-panel, .story, .trust-bar, .product-cta, .hero-title, .test-grid, .contact';
+        const nodes = Array.from(document.querySelectorAll(selector));
+        nodes.forEach((el, idx) => {
+          el.classList.add('animate-on-scroll');
+          el.style.setProperty('--stagger-index', idx);
+        });
+
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              entry.target.classList.add('in-view');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        nodes.forEach(n => io.observe(n));
+      }catch(e){ /* fail silently */ }
+    })();
+  </script>
+
+  <script src="main.js"></script>
+</body>
+</html>

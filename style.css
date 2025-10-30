@@ -1,0 +1,165 @@
+/* Shared interactive styles and scroll reveal animations */
+
+:root{
+	--scroll-reveal-distance: 18px;
+	--reveal-duration: 600ms;
+	--card-hover-scale: 1.025;
+	--card-hover-shadow: 0 22px 50px rgba(18,30,20,0.12);
+
+	/* Nav ripple & tooltip theming (override these to match your brand) */
+	--nav-ripple-color: rgba(88,129,87,0.12);
+	--nav-tooltip-bg: rgba(20,30,20,0.9);
+}
+
+/* Hover effect for product / content cards */
+.card{
+	transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease, filter 260ms ease;
+	will-change: transform, box-shadow;
+}
+.card:hover,
+.card:focus-within{
+	transform: translateY(-6px) scale(var(--card-hover-scale));
+	box-shadow: var(--card-hover-shadow);
+}
+
+/* Subtle link / CTA hover */
+.cta, .product-cta a, .send, .popup-btn {
+	transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.cta:hover, .product-cta a:hover, .send:hover, .popup-btn:hover {
+	transform: translateY(-4px);
+}
+
+/* Scroll reveal: start hidden then animate into view */
+.animate-on-scroll{
+	opacity: 0;
+	transform: translateY(var(--scroll-reveal-distance));
+	transition: transform var(--reveal-duration) cubic-bezier(.2,.9,.3,1), opacity var(--reveal-duration) ease;
+	will-change: transform, opacity;
+}
+.animate-on-scroll.in-view{
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Stagger helper: when parent has --stagger-index, use it */
+.animate-on-scroll[style*="--stagger-index"]{
+	transition-delay: calc(var(--stagger-index) * 80ms);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+	.card, .animate-on-scroll, .cta, .product-cta a, .send, .popup-btn { transition: none !important; transform: none !important; }
+}
+
+/* Navigation hover polish */
+header nav { position: relative; }
+header nav a {
+	position: relative;
+	display: inline-block;
+	padding: 8px 10px;
+	color: var(--muted);
+	transition: color 200ms ease, transform 200ms cubic-bezier(.2,.9,.3,1), background 180ms ease;
+}
+header nav a::after{
+	content: '';
+	position: absolute;
+	left: 12px;
+	right: 12px;
+	bottom: 6px;
+	height: 2px;
+	background: var(--accent-2);
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 160ms ease;
+	opacity: 0.95;
+}
+header nav a:hover, header nav a:focus{
+	color: var(--accent-3);
+	transform: translateY(-3px);
+}
+header nav a:hover::after, header nav a:focus::after{
+	transform: scaleX(1);
+}
+
+/* Indicator controlled by JS for a smoother moving underline */
+.nav-indicator{
+	position: absolute; left:0; bottom:8px; height:3px; background:var(--accent-2); border-radius:999px;
+	width:0; transform: translateX(0); transition: transform 260ms cubic-bezier(.2,.9,.3,1), width 260ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease;
+	pointer-events: none; opacity:0; z-index:1300;
+}
+.nav-indicator.visible{ opacity: 1; }
+
+/* Active nav link style: persists when not hovering */
+header nav a.nav-active{
+	color: var(--accent-3);
+	font-weight: 700;
+}
+header nav a.nav-active::after{ transform: scaleX(1); }
+
+/* Soft moving bubble behind nav items for a tactile feel */
+.nav-bubble{
+	position: absolute;
+	left: 0;
+	bottom: 6px; /* placed roughly near the links */
+	height: 36px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, rgba(88,129,87,0.08), rgba(58,90,64,0.06));
+	transform: translateX(0);
+	transition: transform 300ms cubic-bezier(.2,.9,.3,1), width 300ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease;
+	pointer-events: none;
+	z-index: 1200; /* behind the indicator which is 1300 */
+	opacity: 0;
+}
+.nav-bubble.visible{ opacity: 1; }
+
+/* Reduce bubble size on small screens */
+@media (max-width:640px){
+	.nav-bubble{ display:none; }
+}
+
+/* Ripple on click inside nav links */
+header nav a{ position: relative; overflow: visible; }
+.nav-ripple {
+	position: absolute;
+	border-radius: 50%;
+	background: rgba(88,129,87,0.12);
+	transform: scale(0);
+	pointer-events: none;
+	will-change: transform, opacity;
+}
+.nav-ripple.animate{
+ 	/* tightened ripple timing for snappier feel (brand-tweakable) */
+ 	transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 260ms ease;
+ 	transform: scale(1);
+ 	opacity: 0;
+}
+
+/* Tooltip for long hover */
+.nav-tooltip{
+ 	position: absolute;
+ 	padding: 6px 8px;
+ 	background: var(--nav-tooltip-bg);
+ 	color: #fff;
+ 	font-size: 12px;
+ 	border-radius: 6px;
+ 	transform-origin: center bottom;
+ 	transform: translateY(6px) scale(.96);
+ 	opacity: 0;
+ 	/* tightened tooltip transition for a slightly snappier UI */
+ 	transition: transform 140ms ease, opacity 140ms ease;
+ 	white-space: nowrap;
+ 	z-index: 1400;
+ 	pointer-events: none;
+}
+.nav-tooltip.visible{ opacity: 1; transform: translateY(0) scale(1); }
+
+@media (prefers-reduced-motion: reduce){
+	.nav-ripple.animate{ transition: none; }
+	.nav-tooltip{ transition: none; }
+}
+
+/* Focus-visible accessibility */
+header nav a:focus-visible{ outline: 3px solid rgba(88,129,87,0.14); outline-offset:4px; }
+
+

@@ -11,14 +11,16 @@
 
 <meta property="og:title" content="Easy Sheets — Plan Smarter. Study Better." />
 <meta property="og:description" content="Smart Google Sheet templates for students & professionals. Instant access via Payhip." />
-<meta property="og:image" content="https://i.imgur.com/zpKzkXO.png" />
+<meta property="og:image" content="images/logo.jpg" />
 <meta property="og:type" content="website" />
 
 <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKER311BZP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+  </script>
+  <script src="main.js"></script>
+  </body>
     gtag('js', new Date());
     gtag('config', 'G-HKER311BZP');
   </script>
@@ -272,19 +274,23 @@
   /* accessibility focus */
   button:focus, a:focus {outline:3px solid rgba(88,129,87,0.16)}
 </style>
+<!-- external shared styles (hover + scroll reveal) -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="brand">
-    <img src="https://i.imgur.com/zpKzkXO.png" alt="Easy Sheets logo" />
-    <h1>Easy Sheets</h1>
+    <a href="index.html" class="brand-link" aria-label="Go to home" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit">
+      <img src="images/logo.jpg" alt="Easy Sheets logo" />
+      <h1>Easy Sheets</h1>
+    </a>
   </div>
-  <nav aria-label="Main">
+    <nav aria-label="Main">
     <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#story">Our story</a>
-    <a href="#contact">Contact</a>
+    <a href="Products.html">Products</a>
+    <a href="About.html">Our story</a>
+    <a href="Contact.html">Contact</a>
   </nav>
 </header>
 
@@ -306,7 +312,7 @@
           <div class="sub">Designed for college & working students — minimal setup, lifetime usefulness.</div>
 
           <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-            <a class="cta" href="#products" aria-label="Explore Easy Sheets products">Browse templates</a>
+            <a class="cta" href="Products.html" aria-label="Explore Easy Sheets products">Browse templates</a>
             <a class="cta" href="#contact" style="background:transparent;color:var(--accent-3);box-shadow:none;border:1px solid rgba(52,78,65,0.06)">Contact us</a>
           </div>
         </div>
@@ -331,12 +337,12 @@
       <article class="card" aria-labelledby="bp-title">
         <div class="carousel" data-id="carousel-1">
           <div class="slides">
-            <div class="slide"><img src="https://i.imgur.com/244I7Hu.jpg" alt="Blossom Pink preview 1"></div>
-            <div class="slide"><video controls preload="metadata" poster="https://i.imgur.com/244I7Hu.jpg"><source src="https://i.imgur.com/7SHhN37.mp4" type="video/mp4">Your browser does not support video.</video></div>
-            <div class="slide"><img src="https://i.imgur.com/OFHzI67.jpg" alt="Blossom Pink preview 2"></div>
-            <div class="slide"><img src="https://i.imgur.com/nWSe99c.jpg" alt="Blossom Pink preview 3"></div>
-            <div class="slide"><img src="https://i.imgur.com/C5jMRJU.jpg" alt="Blossom Pink preview 4"></div>
-            <div class="slide"><img src="https://i.imgur.com/cK2r8lK.jpg" alt="Blossom Pink preview 5"></div>
+            <div class="slide"><img src="images/blossom-pink-1.jpg" alt="Blossom Pink preview 1"></div>
+            <div class="slide"><video controls preload="metadata" poster="images/blossom-pink-1.jpg"><source src="images/blossom-pink-demo.mp4" type="video/mp4">Your browser does not support video.</video></div>
+            <div class="slide"><img src="images/blossom-pink-2.jpg" alt="Blossom Pink preview 2"></div>
+            <div class="slide"><img src="images/blossom-pink-3.jpg" alt="Blossom Pink preview 3"></div>
+            <div class="slide"><img src="images/blossom-pink-4.jpg" alt="Blossom Pink preview 4"></div>
+            <div class="slide"><img src="images/blossom-pink-5.jpg" alt="Blossom Pink preview 5"></div>
           </div>
           <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-1')">‹</button>
           <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-1')">›</button>
@@ -351,12 +357,12 @@
       <article class="card" aria-labelledby="fg-title">
         <div class="carousel" data-id="carousel-2">
           <div class="slides">
-            <div class="slide"><img src="https://i.imgur.com/e3M5TMg.jpg" alt="Forest Green preview 1"></div>
-            <div class="slide"><video controls preload="metadata" poster="https://i.imgur.com/e3M5TMg.jpg"><source src="https://i.imgur.com/bh6P4u2.mp4" type="video/mp4">Your browser does not support video.</video></div>
-            <div class="slide"><img src="https://i.imgur.com/QsdFPXU.jpg" alt="Forest Green preview 2"></div>
-            <div class="slide"><img src="https://i.imgur.com/erD7739.jpg" alt="Forest Green preview 3"></div>
-            <div class="slide"><img src="https://i.imgur.com/yCDqnLy.jpg" alt="Forest Green preview 4"></div>
-            <div class="slide"><img src="https://i.imgur.com/HIUBGDP.jpg" alt="Forest Green preview 5"></div>
+            <div class="slide"><img src="images/forest-green-1.jpg" alt="Forest Green preview 1"></div>
+            <div class="slide"><video controls preload="metadata" poster="images/forest-green-1.jpg"><source src="images/forest-green-demo.mp4" type="video/mp4">Your browser does not support video.</video></div>
+            <div class="slide"><img src="images/forest-green-2.jpg" alt="Forest Green preview 2"></div>
+            <div class="slide"><img src="images/forest-green-3.jpg" alt="Forest Green preview 3"></div>
+            <div class="slide"><img src="images/forest-green-4.jpg" alt="Forest Green preview 4"></div>
+            <div class="slide"><img src="images/forest-green-5.jpg" alt="Forest Green preview 5"></div>
           </div>
           <button class="arrow left" aria-label="Previous" onclick="slidePrev('carousel-2')">‹</button>
           <button class="arrow right" aria-label="Next" onclick="slideNext('carousel-2')">›</button>
@@ -371,7 +377,7 @@
       <article class="card" aria-labelledby="bt-title">
         <div class="carousel" data-id="carousel-3">
           <div class="slides">
-            <div class="slide"><img src="https://i.imgur.com/TknptzJ.jpg" alt="Budget tracker preview"></div>
+            <div class="slide"><img src="images/budget-tracker.jpg" alt="Budget tracker preview"></div>
           </div>
         </div>
         <h3 id="bt-title">FREE Easy Sheets Budget Tracker for Students</h3>
@@ -450,8 +456,8 @@
       <strong>Easy Sheets</strong><br>
       Digital templates sold on Payhip — instant download after purchase.
     </div>
-    <div style="text-align:right">
-      <small>© <span id="year"></span> Easy Sheets • <a href="#contact">Contact</a> • <a href="#story">Our story</a></small>
+      <div style="text-align:right">
+      <small>© <span id="year"></span> Easy Sheets • <a href="Contact.html">Contact</a> • <a href="About.html">Our story</a></small>
     </div>
   </div>
 </footer>
@@ -613,125 +619,30 @@ function closePopup() {
 setTimeout(showPopup, 7000); // Show popup after 7 seconds
 </script>
 <!-- End Smart Offer Popup -->
-
-<!-- Floating Chat Widget -->
-<div id="chat-widget" class="chat-widget">
-  <button id="chat-toggle" class="chat-toggle">💬</button>
-  <div id="chat-box" class="chat-box hidden">
-    <form id="chat-form" action="https://formspree.io/f/xanlbqze" method="POST">
-      <h3>Chat with Easy Sheets</h3>
-      <textarea name="message" id="chat-message" rows="3" placeholder="Type your message..." required></textarea>
-      <button type="submit">Send</button>
-      <p id="chat-response" class="chat-response"></p>
-    </form>
-  </div>
-</div>
-
-<!-- Chat Script -->
 <script>
-  const chatToggle = document.getElementById("chat-toggle");
-  const chatBox = document.getElementById("chat-box");
-  const chatForm = document.getElementById("chat-form");
-  const chatResponse = document.getElementById("chat-response");
-
-  chatToggle.addEventListener("click", () => {
-    chatBox.classList.toggle("hidden");
-  });
-
-  chatForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(chatForm);
-    const response = await fetch(chatForm.action, {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" }
+// Scroll reveal: add .animate-on-scroll to key blocks and observe them
+(function(){
+  try{
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const selector = '.card, .hero-panel, .story, .trust-bar, .product-cta, .hero-title, .test-grid, .contact';
+    const nodes = Array.from(document.querySelectorAll(selector));
+    nodes.forEach((el, idx) => {
+      el.classList.add('animate-on-scroll');
+      el.style.setProperty('--stagger-index', idx);
     });
 
-    if (response.ok) {
-      chatResponse.textContent = "✅ Thank you! I'll get back to you soon.";
-      chatForm.reset();
-    } else {
-      chatResponse.textContent = "⚠️ Oops! Something went wrong. Please try again.";
-    }
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-    setTimeout(() => (chatResponse.textContent = ""), 4000);
-  });
+    nodes.forEach(n => io.observe(n));
+  }catch(e){ /* fail silently */ }
+})();
 </script>
-
-<!-- Chat Styles -->
-<style>
-  .chat-widget {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-family: "Inter", sans-serif;
-    z-index: 9999;
-  }
-
-  .chat-toggle {
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .chat-box {
-    background: white;
-    width: 280px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    padding: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .chat-box.hidden {
-    display: none;
-  }
-
-  .chat-box h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #111827;
-    text-align: center;
-  }
-
-  .chat-box textarea {
-    resize: none;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    padding: 8px;
-    font-size: 14px;
-    font-family: "Inter", sans-serif;
-  }
-
-  .chat-box button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s ease;
-  }
-
-  .chat-box button:hover {
-    background: #1d4ed8;
-  }
-
-  .chat-response {
-    font-size: 13px;
-    color: #10b981;
-    text-align: center;
-    min-height: 18px;
-  }
-</style>
 </body>
 </html>
