@@ -1,82 +1,35 @@
-/* ================================================
-   EASYSHEETSPH INTERACTIONS
-   ================================================ */
+/* =========================
+   Easy Sheets — Script
+   Author: Easy Sheets Team
+   ========================= */
 
-// ========== CAROUSEL FUNCTIONALITY ==========
-
-// Store the current slide index for each carousel
-const slideIndexes = {};
-
-function slideNext(id) {
-  const carousel = document.querySelector(`[data-id="${id}"] .slides`);
-  const slides = carousel.children.length;
-
-  if (!slideIndexes[id]) slideIndexes[id] = 0;
-  slideIndexes[id] = (slideIndexes[id] + 1) % slides;
-
-  carousel.style.transform = `translateX(-${slideIndexes[id] * 100}%)`;
-}
-
-function slidePrev(id) {
-  const carousel = document.querySelector(`[data-id="${id}"] .slides`);
-  const slides = carousel.children.length;
-
-  if (!slideIndexes[id]) slideIndexes[id] = 0;
-  slideIndexes[id] = (slideIndexes[id] - 1 + slides) % slides;
-
-  carousel.style.transform = `translateX(-${slideIndexes[id] * 100}%)`;
-}
-
-// ========== CHAT BOX TOGGLE ==========
-
-const chatToggle = document.getElementById("chatToggle");
-const chatBox = document.getElementById("chatBox");
-const chatClose = document.getElementById("chatClose");
-
-if (chatToggle && chatBox && chatClose) {
-  chatToggle.addEventListener("click", () => {
-    chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
+(function () {
+  // Smooth scrolling for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
 
-  chatClose.addEventListener("click", () => {
-    chatBox.style.display = "none";
-  });
-}
+  // CTA button interactions
+  const buyNowBtn = document.getElementById('buyNowBtn');
+  const purchaseBtn = document.getElementById('purchaseBtn');
 
-// ========== CHAT FORM HANDLER ==========
-
-function submitChat(event) {
-  event.preventDefault();
-
-  const name = document.getElementById("chatName").value.trim();
-  const email = document.getElementById("chatEmail").value.trim();
-  const message = document.getElementById("chatMessage").value.trim();
-
-  if (!name || !email || !message) {
-    alert("Please fill out all fields before sending.");
-    return false;
+  function openCheckout() {
+    window.open('https://yourshoplink.com', '_blank');
   }
 
-  // ✅ (Future integration)
-  // You can later connect this to EmailJS, Google Form, or Formspree.
-  // For now, it just shows a confirmation message.
+  if (buyNowBtn) buyNowBtn.addEventListener('click', openCheckout);
+  if (purchaseBtn) purchaseBtn.addEventListener('click', openCheckout);
 
-  alert(`Thanks, ${name}! Your message has been sent successfully. We'll reply soon at ${email}.`);
-
-  // Reset the form
-  document.getElementById("chatForm").reset();
-  chatBox.style.display = "none";
-
-  return false;
-}
-
-// ========== SMOOTH SCROLLING FOR NAV LINKS ==========
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+  // Accessibility: Keyboard focus styles
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Tab') {
+      document.body.classList.add('user-is-tabbing');
     }
   });
-});
+})();
