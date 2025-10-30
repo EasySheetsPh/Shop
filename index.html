@@ -602,6 +602,18 @@ document.getElementById('year').textContent = new Date().getFullYear();
 }
 </style>
 
+<script>
+function showPopup() {
+  const popup = document.getElementById('offerPopup');
+  popup.style.display = 'block';
+}
+function closePopup() {
+  document.getElementById('offerPopup').style.display = 'none';
+}
+setTimeout(showPopup, 7000); // Show popup after 7 seconds
+</script>
+<!-- End Smart Offer Popup -->
+
 <!-- Floating Chat Widget -->
 <div id="chat-widget" class="chat-widget">
   <button id="chat-toggle" class="chat-toggle">💬</button>
