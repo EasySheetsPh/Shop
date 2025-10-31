@@ -18,9 +18,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKER311BZP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-  </script>
-  <script src="main.js"></script>
-  </body>
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-HKER311BZP');
   </script>
@@ -269,6 +267,11 @@
     .products-wrap{padding:12px}
     .card{padding:12px}
     .chat-box{right:12px;left:12px;bottom:80px;width:auto}
+    nav{gap:8px;font-size:0.85rem}
+    nav a{padding:4px 6px}
+    .hero .cta{padding:10px 16px;font-size:0.95rem}
+    .contact input, .contact textarea{font-size:16px;padding:12px}
+    .send{padding:12px;font-size:0.95rem;width:100%}
   }
 
   /* accessibility focus */
@@ -509,70 +512,14 @@ chatClose.addEventListener('click', () => {
   chatBox.setAttribute('aria-hidden','true');
 });
 
-/* ---------- Chat form submit via fetch to Formspree ---------- */
 const CHAT_ENDPOINT = 'https://formspree.io/f/xanlbqze';
 const chatForm = document.getElementById('chatForm');
 
-chatForm.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const submitBtn = chatForm.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending…';
+handleFormSubmit(chatForm, CHAT_ENDPOINT);
 
-  const formData = new FormData(chatForm);
-  // add a small default subject
-  formData.append('_subject', 'Quick chat from website');
-
-  try {
-    const res = await fetch(CHAT_ENDPOINT, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      chatForm.innerHTML = '<p style="color:var(--accent-3);font-weight:700">Thanks — your message was sent. We\'ll reply by email soon.</p>';
-      setTimeout(()=> { chatBox.style.display = 'none'; chatBox.setAttribute('aria-hidden','true'); }, 2200);
-    } else {
-      const data = await res.json();
-      chatForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Error: ${data.error || 'Please try again later.'}</p>`);
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send message';
-    }
-  } catch (err) {
-    chatForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Network error. Please try again later.</p>`);
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Send message';
-  }
-});
-
-/* ---------- Hook contact form to Formspree (progressive enhancement) ---------- */
 const contactForm = document.getElementById('contactForm');
 if(contactForm){
-  contactForm.addEventListener('submit', async function(e){
-    // Let the native HTML form submit happen (works without JS), but enhance with AJAX for better UX
-    if(window.fetch){
-      e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      const data = new FormData(contactForm);
-      try {
-        const r = await fetch(contactForm.action, { method:'POST', body: data, headers: {'Accept':'application/json'} });
-        if(r.ok){
-          contactForm.innerHTML = '<p style="color:var(--accent-3);font-weight:700">Thanks — we received your message and will reply within 24 hours.</p>';
-        } else {
-          const d = await r.json();
-          contactForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Error: ${d.error || 'Please try again later.'}</p>`);
-          btn.disabled = false;
-          btn.textContent = 'Send message';
-        }
-      } catch(err){
-        contactForm.insertAdjacentHTML('beforeend', `<p style="color:#C05621">Network error. Please try again later.</p>`);
-        btn.disabled = false;
-        btn.textContent = 'Send message';
-      }
-    }
-  });
+  handleFormSubmit(contactForm, contactForm.action);
 }
 
 /* footer year */

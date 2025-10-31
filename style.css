@@ -162,4 +162,65 @@ header nav a{ position: relative; overflow: visible; }
 /* Focus-visible accessibility */
 header nav a:focus-visible{ outline: 3px solid rgba(88,129,87,0.14); outline-offset:4px; }
 
+/* Form improvements for better UX */
+input, textarea, select {
+	font-size: 16px;
+	font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+	outline: none;
+	border-color: var(--accent-2);
+	box-shadow: 0 0 0 3px rgba(88,129,87,0.1);
+	transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+button:focus-visible {
+	outline: 3px solid rgba(88,129,87,0.3);
+	outline-offset: 2px;
+}
+
+/* Loading state */
+button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Success message style */
+.success-message {
+	color: var(--accent-2);
+	font-weight: 600;
+	padding: 12px;
+	border-radius: 8px;
+	background: rgba(88,129,87,0.08);
+	border-left: 4px solid var(--accent-2);
+	margin-bottom: 12px;
+}
+
+/* Error message style */
+.error-message {
+	color: #C05621;
+	font-weight: 600;
+	padding: 12px;
+	border-radius: 8px;
+	background: rgba(192,86,33,0.08);
+	border-left: 4px solid #C05621;
+	margin-bottom: 12px;
+}
+
+/* Smooth scrolling */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Better link underlines */
+a[href^="http"], a[href^="mailto:"] {
+	transition: color 200ms ease;
+}
+
+/* Active indicator for form fields */
+input[required]::after, textarea[required]::after {
+	content: '';
+}
+
 
