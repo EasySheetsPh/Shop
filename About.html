@@ -44,7 +44,9 @@
 
     main{padding-top:calc(var(--header-h) + 24px)}
 
-    .story{max-width:980px;margin:96px auto 32px;padding:36px;border-radius:14px;background: linear-gradient(180deg, rgba(163,177,138,0.06), rgba(88,129,87,0.04));box-shadow:var(--card-shadow);border:1px solid rgba(52,78,65,0.04)}
+    .logo-center{text-align:center;margin:48px auto 32px;max-width:980px}
+    .logo-center img{width:200px;height:200px;border-radius:16px;object-fit:cover;margin:0 auto;box-shadow:var(--card-shadow);border:1px solid rgba(52,78,65,0.04)}
+    .story{max-width:980px;margin:32px auto 32px;padding:36px;border-radius:14px;background: linear-gradient(180deg, rgba(163,177,138,0.06), rgba(88,129,87,0.04));box-shadow:var(--card-shadow);border:1px solid rgba(52,78,65,0.04)}
     .story h3{margin:0 0 8px;color:var(--accent-3)}
     .story p{color:var(--text);line-height:1.6}
     .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
@@ -76,6 +78,10 @@
   </header>
 
   <main>
+    <div class="logo-center">
+      <img src="images/logo.jpg" alt="Easy Sheets Logo" />
+    </div>
+
     <section class="story" aria-labelledby="story-title">
       <h3 id="story-title">Our Story — Built from the struggle</h3>
       <p>
